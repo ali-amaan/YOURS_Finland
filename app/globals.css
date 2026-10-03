@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(900px 420px at 100% -10%, rgba(143, 208, 198, 0.55), transparent 60%),
+    radial-gradient(700px 380px at -10% 8%, rgba(196, 92, 50, 0.14), transparent 55%),
+    #f3f1eb;
+  color: #14211c;
+}
+
+::selection {
+  background: #12382f;
+  color: #f3f1eb;
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .kicker {
+    @apply text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-moss;
+  }
+
+  .display {
+    @apply font-display font-medium tracking-[-0.03em] text-ink;
+  }
+
+  .prose-page {
+    @apply max-w-3xl space-y-5 text-lg leading-relaxed text-ink/80;
+  }
+
+  .card {
+    @apply rounded-3xl border border-ink/10 bg-white/75 shadow-card backdrop-blur-sm;
+  }
+
+  .text-link {
+    @apply font-medium text-pine underline decoration-aurora decoration-2 underline-offset-4 transition hover:text-moss;
+  }
+}
+
+.aurora-drift {
+  animation: drift 22s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(-1.5%, 1%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .aurora-drift {
+    animation: none;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #c45c32;
+  outline-offset: 3px;
+}
